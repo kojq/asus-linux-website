@@ -1,1 +1,5 @@
-Repository for the site at [https://asus-linux.org](https://asus-linux.org)
+## TODO
+
+- Determine whether to use markdown vs HTML
+- Determine layout
+- Determine directory structure
