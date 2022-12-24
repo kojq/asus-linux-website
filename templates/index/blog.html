@@ -1,0 +1,36 @@
+{% extends "index.html" %}
+
+{% block content %}
+    {% if section %}
+        <section class="article-container">
+            <h1 class="article-container__title">{{ section.title }}</h1>
+
+            <article class="article-container__content">
+                {{ section.content | safe }}
+            </article>
+        </section>
+    {% elif page %}
+        <section class="article-container">
+            <h1 class="article-container__title">{{ page.title }}</h1>
+
+            <article class="article-container__content">
+                {{ page.content | safe }}
+            </article>
+        </section>
+    {% endif %}
+
+    <div class="list-posts">
+        {% set posts = get_section(path="blog/_index.md") %}
+        {% if posts.pages %}
+            {% for page in posts.pages %}
+                {% if page.draft == false %}
+                <article class="post">
+                    <h3 class="post__title"><a href="{{ page.permalink }}">{{ page.title }}</a></h3>
+                    <p class="post-meta">{{ page.description }}</p>
+                    {{ posts::generate_meta(page=page) }}
+                </article>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+    </div>
+{% endblock content %}

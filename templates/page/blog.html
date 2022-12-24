@@ -1,0 +1,20 @@
+{% extends "index.html" %}
+{% import "macros/posts.html" as posts %}
+
+{% block description %}
+    {{ page.description }}
+{% endblock %}
+
+{% block title %}
+    {{ page.title }} — {{ super() }}
+{% endblock %}
+
+{% block content %}
+    <section class="article-container">
+        {{ posts::generate_meta(page=page) }}
+
+        <article class="article-container__content">
+            {{ page.content | safe }}
+        </article>
+    </section>
+{% endblock %}

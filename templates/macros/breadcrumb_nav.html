@@ -1,0 +1,17 @@
+{% macro generate() %}
+    <ul>
+        {% set combined_path = "" %}
+        {% for uri in current_path | split(pat="/") %}
+            {% if uri == "" %}
+                {% continue %}
+            {% endif %}
+            {% set_global combined_path = combined_path ~ "/" ~ uri %}
+            {% set cur_uri = get_url(path=combined_path) %}
+            {% set class = "" %}
+            {% if cur_uri == get_url(path="/" ~ current_path) %}
+                {% set class = "active" %}
+            {% endif %}
+            <li><a href="{{ cur_uri }}" class="{{ class }}">{{ uri }}</a></li>
+        {% endfor %}
+    </ul>
+{% endmacro %}

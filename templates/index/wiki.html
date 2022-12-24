@@ -1,0 +1,33 @@
+{% extends "index.html" %}
+
+{% block content %}
+    {% if section %}
+        <section class="article-container">
+            <h1 class="article-container__title">{{ section.title }}</h1>
+
+            <article class="article-container__content">
+                {{ section.content | safe }}
+            </article>
+        </section>
+    {% elif page %}
+        <section class="article-container">
+            <h1 class="article-container__title">{{ page.title }}</h1>
+
+            <article class="article-container__content">
+                {{ page.content | safe }}
+            </article>
+        </section>
+    {% endif %}
+
+    <div class="list-posts">
+        {% set entries = get_section(path="wiki/_index.md") %}
+        {% for page in entries.pages %}
+            {% if page.draft == false %}
+                <article class="post">
+                    <h4 class="post__title"><a href="{{ page.permalink }}">{{ page.title }}</a></h4>
+                    <p class="post-meta">{{ page.description }}</p>
+                </article>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock content %}

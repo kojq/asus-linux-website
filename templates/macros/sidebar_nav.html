@@ -1,0 +1,15 @@
+{% macro generate() %}
+    <ul class="sidebar__nav">
+        {% for item in load_data(path="index.json", format="json") %}
+            {% if item.class %}
+                {% set class = item.class %}
+            {% else %}
+                {% set class = "" %}
+            {% endif %}
+            {% if item.path ~ "/" == "/" ~ current_path %}
+                {% set class = "active" %}
+            {% endif %}
+            <li class="{{ class }}"><a href="{{ get_url(path=item.path) }}" class="{{ class }}">{{ item.descr }}</a></li>
+        {% endfor %}
+    </ul>
+{% endmacro %}

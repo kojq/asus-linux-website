@@ -1,0 +1,34 @@
+<!-- 
+  section_contribute template
+
+  parameters:
+  text: shows the first text section
+  head: changes the first headline above the text
+  donate: shows the donation section
+  donate_head: changes the donation headline
+  donate_content: changes the donation text
+-->
+<section class="section-contribute">
+  <div class="section-wrap">
+    {% if text %}
+      <h2 class="section-head">{% if head %}{{head}}{% else %}Want to contribute?{% endif %}</h2>
+      <div class="section-content">
+        {% if text_content %}
+          {{text_content}}
+        {% else %}
+          <p>If this site helps you and you want to contribute we welcome you to <a href="https://gitlab.com/asus-linux/" target="blank" title="go to Asus Linux Gitlab">help with development</a>, <a href="https://gitlab.com/groups/asus-linux/-/issues" target="blank" title="visit our issues overview">search for issues</a>, <a href="https://discord.gg/4ZKGd7Un5t" target="_blank" title="join us on Discord!">join the discord</a>, and <a href="https://gitlab.com/asus-linux/website" target="_blank" title="visit our website Gitlab!">add to this website</a>.</p>
+        {% endif %}
+      </div>
+    {% endif %}
+    {% if donate %}
+      <h3 class="section-head">{% if donate_head %}{{donate_head}}{% else %}You can also donate{% endif %}</h3>
+      <div class="section-content">
+        {% if donate_content %}
+          {{donate_content}}
+        {% else %}
+          Your support on Pateron or Paypal helps us buy ASUS devices for development to support new features and drivers.
+        {% endif %}</div>
+      <div class="section-content content-donate">{% include 'base/snippet_patreon_big.html' %}<strong>or</strong>{% include 'base/snippet_paypal_big.html' %}</div>
+    {% endif %}
+  </div>
+</section>

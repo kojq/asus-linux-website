@@ -1,0 +1,65 @@
+{% import "macros/breadcrumb_nav.html" as breadcrumb_nav %}
+{% import "macros/posts.html" as posts %}
+<!DOCTYPE html>
+<html lang="en-gb">
+    <head>
+        {% block head %}
+            {% include 'base/head.html' %}
+        {% endblock %}
+    </head>
+    <body class="light-theme">
+      <div class="main">
+        <div class="sidebar">
+            {% block sidebar %}
+                {% include 'base/sidebar.html' %}
+            {% endblock %}
+        </div>
+        <div class="content">
+            <nav class="crumb">
+                {% block breadcrumb %}
+                    {% include 'base/nav_crumb.html' %}
+                {% endblock %}
+                <label class="switch">
+                  <i class="fas fa-adjust"></i>
+                  <div>
+                    <input type="checkbox" />
+                    <span class="slider round"></span>
+                  </div>
+                </label>
+            </nav>
+            <script>
+              // save state to local storage
+              var colorState = localStorage.getItem("theme-mode");
+              if(colorState === "dark-theme"){
+                document.body.classList.replace("light-theme", "dark-theme");
+              }
+              document.addEventListener('DOMContentLoaded', function () {
+                // do switching
+                var checkbox = document.querySelector('input[type="checkbox"]');
+                checkbox.addEventListener('change', function () {
+                  if (checkbox.checked) {
+                    document.body.classList.replace("light-theme", "dark-theme");
+                    localStorage.setItem('theme-mode', 'dark-theme');
+                  }else{
+                    document.body.classList.replace("dark-theme", "light-theme");
+                    localStorage.setItem('theme-mode', 'light-theme');
+                  }
+                });
+              });
+            </script>
+            {% block content %}
+                <h1>
+                    {% block title %}
+                        <!-- title placeholder -->
+                    {% endblock %}
+                </h1>
+            {% endblock %}
+        </div>
+        <div class="footer">
+            {% block footer %}
+                {% include 'base/footer.html' %}
+            {% endblock %}
+        </div>
+      </div>
+    </body>
+</html>

@@ -1,0 +1,16 @@
+{% import "macros/sidebar_nav.html" as sidebar_nav %}
+<div class="sidebar__content">
+  <a href="/" class="__title"><h2>{{ config.extra.page_title }}</h2></a>
+  <!-- <p>
+    {{ config.description }}
+  </p> -->
+  {% block nav_side %}
+      {% include 'base/nav_side.html' %}
+  {% endblock %}
+  <div class="sidebar__content__links">
+    <a href="https://discord.gg/4ZKGd7Un5t" target="_blank" title="join us on Discord!"><img class="sidebar__img discord_logo" src="/logo_discord_dark.svg" alt="Say hello on Discord!"></a>
+    <a href="https://gitlab.com/asus-linux" target="_blank" title="fork us on Gitlab!"><img class="sidebar__img discord_logo" src="/logo_gitlab_dark.svg" alt="Fork us on Gitlab!"></a>
+    <a href="https://www.patreon.com/bePatron?u=7602281" target="_blank" title="support us on Patreon!"><img class="sidebar__img patreon_logo" src="/patreon-black-logo.png" alt="Support us on Patreon!"></a>
+    <a href="https://www.paypal.com/donate?hosted_button_id=4V2DEPS7K6APC" target="_blank" title="support us via PayPal!"><img class="sidebar__img patreon_logo" src="/paypal-black-logo.png" alt="Support us via PayPal!"></a>
+  </div>
+</div>

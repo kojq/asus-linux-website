@@ -1,0 +1,19 @@
+{% extends "index.html" %}
+
+{% block description %}
+    {{ page.description }}
+{% endblock %}
+
+{% block title %}
+    {{ page.title }} — {{ super() }}
+{% endblock %}
+
+{% block content %}
+    <section class="article-container">
+        <h1 class="article-container__title">{{ page.title }}</h1>
+
+        <article class="article-container__content">
+            {{ page.content | safe }}
+        </article>
+    </section>
+{% endblock %}

@@ -1,0 +1,12 @@
+<div class="list-posts">
+    {% set posts = get_section(path="blog/_index.md") %}
+    {% for page in posts.pages %}
+        {% if page.draft == false %}
+        <article class="post">
+            <h3 class="post__title"><a href="{{ page.permalink }}">{{ page.title }}</a></h3>
+            <p class="post-meta">{{ page.description }}</p>
+            {{ m_posts::post_meta(page=page) }}
+        </article>
+        {% endif %}
+    {% endfor %}
+</div>
