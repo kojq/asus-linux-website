@@ -1,0 +1,26 @@
+base_url = "/"
+title = "ASUS NoteBook Linux"
+description = "Linux guides and tools for ASUS Notebooks and Gaming Laptops"
+compile_sass = true
+generate_rss = true
+rss_limit = 2
+highlight_code = true
+highlight_theme = "ir-white"
+
+# Whether to build a search index to be used later on by a JavaScript library
+build_search_index = true
+
+taxonomies = [
+    {name = "categories", rss = true},
+]
+
+[extra]
+page_title = "ASUS Linux"
+author = "Luke Jones"
+co_authors = [
+    "Armas Spann",
+    "Cole Deck",
+    "Mateusz Schyboll",
+    "Nathan Ladd",
+    "Marco Laux",
+]

@@ -1,0 +1,10 @@
+[
+    {"path":"/blog", "descr":"Blog"},
+    {"path":"/asusctl", "descr":"asusctl"},
+    {"path":"/supergfxctlgex", "descr":"supergfxctl-gex"},
+    {"path":"/asusctlgex", "descr":"asusctl-gex"},
+    {"path":"/wiki", "descr":"Guides"},
+    {"path":"/faq", "descr":"FAQ"},
+    {"path":"/thirdparty", "descr":"Third Party"},
+    {"path":"/legal", "descr":"Legal"}
+]
